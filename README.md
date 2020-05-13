@@ -11,12 +11,12 @@ But with this simple library you get the contents of the `List` by calling `list
 ```
 There is a `verbose` flag in `ReflectionToStringExts` class which controls printing of collection types in addition to the contents:
 ```
-Collection<String>{one, two, three}
+List`1<String>{one, two, three}
 ```
 
 The library is easy to use and handles all generic collection types out of the box.
 
-Read my blog post on this topic (TODO link).
+Read my [blog post](https://medium.com/@nosuchstudio/pretty-printing-c-collections-with-reflection-7df43004e2d4) on this topic.
 
 # Full Example
 Here is an example program included in this repository along with its output.
