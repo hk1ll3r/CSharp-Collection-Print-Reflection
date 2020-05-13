@@ -8,17 +8,17 @@ namespace NoSuchStudio.Common
 {
     public static class ReflectionToStringExts
     {
-        public static bool verbose = false;
+        public static bool verbose = true;
         public static string ToStringExtCollection<T>(this ICollection<T> obj, int d = 0)
         {
-            return (verbose ? "Collection<" + typeof(T).Name + ">" : "") + "{" + string.Join(", ", obj.Select(o => o.ToStringExt(d + 1))) + "}";
+            return (verbose ? obj.GetType().Name + "<" + typeof(T).Name + ">" : "") + "{" + string.Join(", ", obj.Select(o => o.ToStringExt(d + 1))) + "}";
         }
         public static string ToStringExtKeyValuePair<U, V>(this KeyValuePair<U, V> kvp, int d = 0)
         {
             return (verbose ? "KeyValuePair<" + typeof(U).Name + "," + typeof(V).Name  + ">" : "") +
-                kvp.Key.ToStringExt(d + 1) +
+                "(" + kvp.Key.ToStringExt(d + 1) +
                 " => " +
-                kvp.Value.ToStringExt(d + 1);
+                kvp.Value.ToStringExt(d + 1) + ")";
         }
         public static string ToStringExt<T>(this T obj, int d = 0)
         {
